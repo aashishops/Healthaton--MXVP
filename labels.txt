@@ -1,0 +1,6 @@
+0 ChickenPox
+1 MonkeyPox
+2 Measles
+3 Healthy
+4 HFMD
+5 Cowpox
