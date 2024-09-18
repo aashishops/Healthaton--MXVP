@@ -1,33 +1,25 @@
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial;
     background:#080A0C;
     position: relative;
 }
 
-body::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    /* background: radial-gradient(circle at bottom right, #0A7CCFCC, #00B2FF00); */
-    z-index: -1; /* Ensure it is behind the content */
-}
 
 .navbar {
     background-color: rgba(255, 255, 255, 0); /* White with 50% opacity */
     overflow: hidden;
-    position: absolute;
+    position: absolute; /* Fixed position to stick to the top */
     width: 100%;
-    top: 0;
-    z-index: 1000; /* Ensure navbar stays on top */
+    top: 0; /* Align to the top of the viewport */
+    z-index: 100; /* Ensure navbar stays on top */
     display: flex;
     align-items: center; /* Center items vertically */
     padding: 0 50px; /* Add horizontal padding */
 }
+
+
 .navbar.hidden {
     top: -80px; /* Adjust based on the height of your navbar */
 }
@@ -130,24 +122,8 @@ body::before {
 }
 
 
-/* Optional: If you need to style text specifically in this section */
-.content-wrapper h1,
-.content-wrapper p {
-    position: relative; /* Ensure text is positioned above the background image */
-    z-index: 1; /* Ensure text appears on top */
-}
-.bottom-right-image {
-    position: fixed; /* Fixes the position relative to the viewport */
-    bottom: 0; /* Aligns the image to the bottom of the viewport */
-    right: 0; /* Aligns the image to the right of the viewport */
-    width: 150px; /* Adjust width as needed */
-    height: auto; /* Maintain aspect ratio */
-    background-image: url('..static/img/gradient.png'); /* Path to the image */
-    background-size: cover; /* Ensure the image covers the container */
-    background-position: center; /* Centers the background image */
-    background-repeat: no-repeat; /* Prevents repetition of the image */
-    z-index: 500; /* Ensure the image is visible */
-}
+
+
 /* About Section Styles */
 #about {
     padding: 50px;
@@ -167,7 +143,6 @@ body::before {
     height: auto; /* Maintain aspect ratio */
     display: block; /* Ensure the image is displayed as a block element */
     margin-bottom: 20px; /* Space between image and text */
-    
     
 }
 
@@ -385,7 +360,7 @@ footer {
 .how-it-works-btn {
     background: linear-gradient(270deg, rgba(10,124,207,1) 0%, rgba(9,101,9,1) 100%);
     color: white;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter';
     font-size: 16px;
     font-weight: 600;
     padding: 10px 20px;
@@ -438,7 +413,7 @@ footer {
 }
 
 .contact-container h2 {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter';
     font-size: 30px; /* Adjust font size as needed */
     color: #E5E5E5; /* Text color */
     margin-bottom: 20px;
@@ -446,7 +421,7 @@ footer {
 }
 
 .contact-container p {
-    font-family: 'Rethink Sans', sans-serif;
+    font-family: 'Rethink Sans';
     font-size: 18px; /* Adjust font size as needed */
     color: #E5E5E5; /* Text color */
     margin-bottom: 20px;
@@ -494,3 +469,46 @@ footer {
     font-weight: normal;
 }
 
+.content-wrapper {
+    position: relative;
+    padding: 20px; /* Adjust padding as needed */
+    background-color: rgba(255, 255, 255, 0.8); /* Light background color for the content area */
+}
+
+.background-image {
+    position: absolute;
+    top: 70%;
+    left: 70%;
+    width: 100%; /* Adjust width to make the image small */
+    height: 100%; /* Adjust height to make the image small */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: translate(-30%, -50%); /* Center the image */
+    z-index: -1; /* Ensure the image is behind the text */
+}
+
+#welcome-container {
+    position: relative;
+}
+
+.background-image1 {
+    position: absolute;
+    top: 50%; /* Adjust as needed */
+    left: 50%; /* Adjust as needed */
+    width: 100%; /* Adjust as needed */
+    height: 100%; /* Adjust as needed */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1; /* Position behind the content */
+    opacity: 0.2; /* Optional: Adjust opacity if needed */
+}
+
+#upload-container {
+    position: relative;
+    z-index: 2; /* Position above the gradient image */
+    /* Additional styles for layout and positioning */
+}
+
+/* Ensure other container styles are properly set */
