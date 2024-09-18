@@ -5,19 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap">
     <title>Transparent Navbar with Images</title>
-    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="static/css/index.css">
 </head>
 <body>
     <div class="navbar">
-        <img src="/static/img/Icon.png" alt="Icon">
-        <img src="/static/img/MXVP E..png" alt="Logo">
+        <img src="static/img/Icon.png" alt="Icon">
+        <img src="static/img/MXVP E..png" alt="Logo">
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#test">MXVP- EPISIGHT</a>
         </div>
     </div>
     <div class="content-wrapper">
-        <!-- <img src="\static\img\mask.png" alt="Background Image" class="background-image"> -->
         <div class="content">
             <div class="box">
                 <h1>MXVP- EPISIGHT</h1>
@@ -37,33 +36,31 @@
         <div class="about-container">
             <h2>ABOUT</h2>
             <br>
-            <span class="gradient-text1">MPVX-EpiSight</span> impact is primarily in its ability to detect outbreaks early, which enables timely testing, contact tracing, and containment measures. This proactive approach helps mitigate the epidemic's effects, strengthens global health security, and provides rapid, accurate identification of potential monkeypox cases. As a result, professionals can make informed decisions and implement effective interventions, ultimately improving epidemic management and control.
-            <br><br><br>
-            <img src="/static/img/Case studies.png" alt="About Image" 
-            
-            
+            <span class="gradient-text1">MPVX-EpiSight</span> impact is primarily in its ability to detect outbreaks early, which enables timely testing, contact tracing, and containment<br> measures. This proactive approach helps mitigate the epidemic's effects, strengthens global health security, and provides rapid, accurate<br>identification of potential monkeypox cases. As a result, professionals can make informed decisions and implement effective interventions,<br> ultimately improving epidemic management and control.</p>
+            <img src="static/img/Case studies.png" alt="About Image" class="about-image">
         </div>
     </section>
 
     <!-- Welcome Section -->
     <section id="test">
         <div class="welcome-container">
-            <br><br><br><br><br><br>
+            <br><br><br>
             <h2>Welcome to <span class="mxvp-episight-box">MXVP- Episight</span></h2>
+
             <p>AI-Driven Epidemic Prediction Tool for Monkeypox</p>
         </div>
-        <div id="upload-container" class="upload-container">
+        <div class="upload-container">
             <button class="upload-left-button">
-                <img src="/static/img/feather_upload-cloud.png" alt="Upload" class="upload-left-image">
+                <img src="static/img/feather_upload-cloud.png" alt="Upload" class="upload-left-image">
             </button>
             <label for="fileInput" class="upload-label">
                 Select a file or drag and drop here <br> <span class="upload-label-secondary">JPG or PNG file size no more than 10MB</span>
             </label>
             
             <button id="submitButton" class="upload-right-button" disabled>
-                <img src="/static/img/send.png" alt="Submit" class="upload-right-image">
+                <img src="static/img/send.png" alt="Submit" class="upload-right-image">
             </button>
-            <input type="file" id="fileInput" accept=".jpg, .png, .jpeg">
+            <input type="file" id="fileInput" accept=".jpg, .png, .jpeg"">
         </div>
         <div class="button-container">
             <button class="how-it-works-btn">How It Works?</button>
@@ -75,15 +72,16 @@
         <div class="results-container">
             <br><br><br>
             <h2>Please verify your identity</h2>
-            <h2 id="result-heading" style="color: green;"></h2> <!-- Added inline style for color -->
-            <h3 id="result-message"></h3>
+            <h3>You have been tested Positive for MXVP/ Chickenpox/CowPox/ Measles/HFMD</h3>
             <div class="button-container">
-                <button class="how-it-works-btn" onclick="window.location.reload();">Back to Upload</button>
+                <button class="how-it-works-btn">Start Treatment</button>
             </div>
-            <br><br><br><br><br> <br><br><br><br><br>
+           
+            <div id="results-content">
+                
+            </div>
         </div>
     </section>
-    
     <!-- Contact Section -->
     <section id="contact">
         <div class="contact-container">
@@ -106,6 +104,8 @@
             </div>
         </div>
     </section>
+    
+
 
     <!-- Footer Section -->
     <footer>
@@ -114,9 +114,43 @@
                 <p>&copy; 2024 MXVP-EpiSight</p>
                 <p><a href="#about">About Us</a> | <a href="#contact">Contact</a></p>
             </div>
-            <img src="/static/img/MXVP Efooter .png" alt="Footer Image" class="footer-image">
+            <img src="static\img\MXVP Efooter .png" alt="Footer Image" class="footer-image">
         </div>
     </footer>
-    <script src="/static/js/index.js"></script>
+    
+    
+    <script>
+        document.querySelector('.upload-left-button').addEventListener('click', function() {
+            document.getElementById('fileInput').click();
+        });
+
+        document.getElementById('fileInput').addEventListener('change', function() {
+            const submitButton = document.getElementById('submitButton');
+            if (this.files.length > 0) {
+                submitButton.disabled = false;
+            } else {
+                submitButton.disabled = true;
+            }
+        });
+
+        document.getElementById('submitButton').addEventListener('click', function() {
+            console.log('Submit button clicked'); // Debugging line
+
+            const resultsSection = document.getElementById('results');
+            const resultsContent = document.getElementById('results-content');
+
+            // Clear previous results
+            resultsContent.innerHTML = '';
+
+            // Example result content
+            resultsContent.innerHTML = '<p>File uploaded: ' + document.getElementById('fileInput').files[0].name + '</p>';
+            resultsContent.innerHTML += '<p>Processing status: Completed</p>';
+
+            // Display the results section
+            resultsSection.style.display = 'block'; // This line makes the results section visible
+});
+
+
+    </script>
 </body>
 </html>

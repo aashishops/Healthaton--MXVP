@@ -1,28 +1,33 @@
 from fastapi import FastAPI, File, UploadFile
-from fastapi.responses import FileResponse, HTMLResponse, StreamingResponse
+from fastapi.responses import JSONResponse, HTMLResponse
+from fastapi.staticfiles import StaticFiles
 from PIL import Image, ImageOps
 import numpy as np
-import io
 import os
 from keras.models import load_model
+import logging
 
 app = FastAPI()
+logging.basicConfig(level=logging.ERROR)
 
-# Define the path to the HTML file
-html_file_path = os.path.join(os.path.dirname(__file__), "templates", "index.html")
+app.mount("/static", StaticFiles(directory="static"), name="static")
+# Define the paths to the HTML files
+index_html_path = os.path.join(os.path.dirname(__file__), "templates", "index.html")
+upload_html_path = os.path.join(os.path.dirname(__file__), "templates", "index.html")  # Same HTML file as / test section
 
 # Load the model
 model = load_model("keras_Model.h5", compile=False)
 
 # Load the labels
-class_names = open("labels.txt", "r").readlines()
+with open("labels.txt", "r") as f:
+    class_names = f.readlines()
 
-# Serve the HTML file at the root URL
+# Serve the index HTML file at the root URL
 @app.get("/", response_class=HTMLResponse)
-async def serve_html():
-    return FileResponse(html_file_path)
+async def serve_index_html():
+    return HTMLResponse(open(index_html_path).read())
 
-@app.post("/upload")
+@app.post("/test")
 async def upload_image(file: UploadFile = File(...)):
     # Open the uploaded image file
     image = Image.open(file.file).convert("RGB")
@@ -44,11 +49,12 @@ async def upload_image(file: UploadFile = File(...)):
     # Predict the class of the image
     prediction = model.predict(data)
     index = np.argmax(prediction)
-    class_name = class_names[index]
+    class_name = class_names[index].strip()
     confidence_score = prediction[0][index]
 
     # Prepare the result message
-    result = f"Class: {class_name[2:].strip()}, Confidence Score: {confidence_score:.2f}"
+    result = f"{class_name}"
+    print(result)
 
-    # Optionally, you can return the result as part of the response
+    # Return the result as a JSON response
     return {"result": result}

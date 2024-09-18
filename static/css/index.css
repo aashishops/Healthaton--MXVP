@@ -1,1 +1,496 @@
 
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background:#080A0C;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    /* background: radial-gradient(circle at bottom right, #0A7CCFCC, #00B2FF00); */
+    z-index: -1; /* Ensure it is behind the content */
+}
+
+.navbar {
+    background-color: rgba(255, 255, 255, 0); /* White with 50% opacity */
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Ensure navbar stays on top */
+    display: flex;
+    align-items: center; /* Center items vertically */
+    padding: 0 50px; /* Add horizontal padding */
+}
+.navbar.hidden {
+    top: -80px; /* Adjust based on the height of your navbar */
+}
+
+.navbar img {
+    height: 35px; /* Adjust the height of the logo image */
+    margin: 10px; /* Space around the images */
+}
+
+.navbar img:first-of-type {
+    margin-top: 1px; /* Adjust margin-top to position image */
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white; /* Dark text for visibility */
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Slight darkening on hover */
+    color: #808080;
+}
+
+.navbar .nav-links {
+    margin-left: 950px; /* Push links to the right */
+  
+}
+
+.content {
+    margin-top: 60px;
+    padding: 20px;
+    position: relative; /* Needed for absolute positioning of the gradient box */
+}
+
+.content .box {
+    display: flex;
+    padding: 20px;
+    justify-content: flex-start;
+    /* background: linear-gradient(to left, #18400f, #18400f, #05484F80 ); Ensure no white in the gradient */
+   
+    background: linear-gradient(90deg, rgba(24,64,15,1) 0%, rgba(24,64,15,1) 90%, rgba(5,72,79,1) 100%);
+    border-radius: 0px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for better visibility */
+    display: inline-block; /* To fit the content's width */
+}
+
+
+
+.content .box {
+    position: relative; /* Enable relative positioning */
+    color: #E5E5E5; /* Text color */
+    font-family: "Inter";
+    top: 30px; /* Move the entire box down */
+    left: 50px; /* Move the entire box to the right */
+    display: flex;
+    padding: 15px;
+    justify-content: flex-start;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 10;
+    line-height: 10%;
+    background: linear-gradient(90deg, rgba(24, 64, 15, 0.8) 0%, rgba(24, 64, 15, 0.5) 50%, rgba(5, 72, 79, 0.8) 100%); /* Translucent background */
+    border-radius: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional: Add a slight shadow */
+    display: inline-block;
+}
+
+
+
+.gradient-text {
+    background: linear-gradient(to bottom, #096509 100%, #0077D2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Rethink Sans";
+    font-size: 30px;   /* Adjust font size as needed */
+    font-weight: 600;   /* Adjust font weight as needed */
+    line-height: 100%;
+}
+
+.move-text {
+    font-family: "Rethink Sans";
+    color : white;
+    position: relative;
+    left: 70px; /* Moves the entire paragraph to the right */
+    top: 50px; /* Moves the entire paragraph down */
+    font-size: 30px; /* Adjust as needed */
+    text-align: justify;
+    width: 100%;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #18400f, #05484F);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+
+/* Optional: If you need to style text specifically in this section */
+.content-wrapper h1,
+.content-wrapper p {
+    position: relative; /* Ensure text is positioned above the background image */
+    z-index: 1; /* Ensure text appears on top */
+}
+.bottom-right-image {
+    position: fixed; /* Fixes the position relative to the viewport */
+    bottom: 0; /* Aligns the image to the bottom of the viewport */
+    right: 0; /* Aligns the image to the right of the viewport */
+    width: 150px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    background-image: url('..static/img/gradient.png'); /* Path to the image */
+    background-size: cover; /* Ensure the image covers the container */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents repetition of the image */
+    z-index: 500; /* Ensure the image is visible */
+}
+/* About Section Styles */
+#about {
+    padding: 50px;
+    background-color: #f9f9f9; /* Light background color for contrast */
+}
+
+/* Gradient Background for About Section */
+#about {
+    padding: 50px;
+    background:#080A0C;
+    color: #fff; /* Optional: Change text color to ensure readability against the gradient */
+}
+
+.about-image {
+    width: 70%; /* Adjust this value to your desired size (e.g., 30%, 40%, etc.) */
+    max-width: auto; /* Optional: Limit the maximum width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure the image is displayed as a block element */
+    margin-bottom: 20px; /* Space between image and text */
+    
+    
+}
+
+.about-container {
+    max-width: auto; /* Allow container to use full width */
+    margin: 0 auto; /* Center the container horizontally */
+    text-align: left; /* Align text to the left */
+    text-align: justify;
+}
+
+.about-container h2 {
+    font-family: 'Inter';
+    font-size: 90px;
+    background: linear-gradient(90deg, rgba(9,101,9,1) 0%, rgba(50,114,238,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Make text color transparent to show gradient */
+    display: inline-block; /* Ensure the gradient covers the text */
+    margin-bottom: 20px;
+}
+
+.about-container p {
+    font-family: 'Rethink Sans';
+    font-size: 18px;
+    color: #FFF; /* Text color for the paragraph */
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+.gradient-text1 {
+    background: linear-gradient(90deg, rgba(9,101,9,1) 0%, rgba(50,114,238,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Rethink Sans";
+    font-size: 18px;   /* Adjust font size as needed */
+    font-weight: 600;   /* Adjust font weight as needed */
+    line-height: 100%;
+}
+
+
+.gradient-text1 {
+    background: linear-gradient(90deg, rgba(9,101,9,1) 0%, rgba(50,114,238,1) 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* Welcome Section Styles */
+#welcome {
+    padding: 50px;
+    background:#080A0C;
+    text-align: center; /* Center-align text */
+}
+
+.welcome-container {
+    max-width: auto; /* Set a max-width for the container */
+    margin: 0 auto; /* Center the container horizontally */
+    text-align: center;
+}
+
+.welcome-container h2 {
+    font-family: 'Inter';
+    font-size: 90px; /* Adjust font size as needed */
+    color: #E5E5E5; /* Text color */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.welcome-container p {
+    font-family: 'Rethink Sans';
+    font-size: 30px; /* Adjust font size as needed */
+    color: #E5E5E5; /* Text color */
+    text-align: center;
+}
+
+.upload-container {
+    display: flex;
+    font-family: 'Inter';
+    font-weight: 100;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    background-color: transparent;
+    border: 2px dashed rgba(255, 255, 255, 0.40); /* Semi-transparent white */
+    border-radius: 5px;
+    padding: 10px;
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+
+.upload-left-button {
+    background: none; /* Remove background */
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+}
+
+.upload-right-button {
+    background-color: green; /* Green background for the right button */
+    border: none;
+    padding: 5px; /* Add padding to give the button some space */
+    border-radius: 5px; /* Rounded corners for the box */
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+}
+
+
+.upload-right-image {
+    width: 30px; /* Set image size */
+    height: 30px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.upload-left-image {
+    width: 50px; /* Set image size */
+    height: 50px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 20px;
+}
+
+.upload-left-image {
+    /* No need to set background-image here, it's in the button */
+}
+
+.upload-right-image {
+    /* No need to set background-image here, it's in the button */
+}
+
+.upload-label {
+    color: white;
+    font-size: 14px;
+    margin: 0 10px; /* Add space around text */
+    text-align: center;
+    flex: 1; /* Allow text to take available space */
+}
+
+.upload-icon {
+    font-size: 20px;
+    color: #007bff;
+}
+.upload-label {
+    color: white; /* Set default color */
+    font-size: 14px; /* Adjust font size if needed */
+}
+
+.upload-label-secondary {
+    color: grey; /* Set color to grey */
+    font-size: 12px; /* Optional: Adjust font size for secondary text */
+}
+
+
+/* Style the hidden file input */
+#fileInput {
+    display: none;
+}
+
+
+/* Footer Styles */
+footer {
+    background: linear-gradient(90deg, rgba(10,124,207,1) 0%, rgba(9,101,9,1) 100%);
+    color: #E5E5E5; /* Light text color */
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 1200px; /* Limit the width of the footer content */
+    margin: 0 auto; /* Center the content horizontally */
+    display: flex;
+    justify-content: space-between; /* Space between text and image */
+    align-items: center;
+}
+
+.footer-text {
+    flex: 1;
+    text-align: center; /* Center align text inside this container */
+}
+
+.footer-text p {
+    margin: 5px 0; /* Space between lines */
+    font-size: 14px; /* Adjust font size as needed */
+}
+
+.footer-text a {
+    color: #E5E5E5; /* Light color for links */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.footer-text a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.footer-image {
+    height: 30px; /* Adjust the height of the footer image */
+    width: auto; /* Maintain aspect ratio */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+    margin-top: 100px; /* Move the button up by 20px (adjust as needed) */
+}
+
+.how-it-works-btn {
+    background: linear-gradient(270deg, rgba(10,124,207,1) 0%, rgba(9,101,9,1) 100%);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+
+.how-it-works-btn:hover {
+    background: linear-gradient(90deg, rgba(9,101,9,1) 0%, rgba(10,124,207,1) 100%);
+}
+
+.mxvp-episight-box {
+    background: linear-gradient(90deg, rgba(24,64,15,1) 0%, rgba(24,64,15,1) 90%, rgba(5,72,79,1) 100%);
+    color: white;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+
+.results-container h2 {
+    font-family: 'Inter';
+    font-size: 60px; /* Adjust font size as needed */
+    color: #E5E5E5; /* Text color */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.results-container h3 {
+    font-family: 'Inter';
+    font-size: 30px; /* Adjust font size as needed */
+    color: #E5E5E5; /* Text color */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Contact Section Styles */
+#contact {
+    padding: 50px;
+    background: #080A0C; /* Background color for the section */
+    color: #E5E5E5; /* Text color */
+    text-align: center; /* Center-align text */
+}
+
+.contact-container {
+    max-width: 800px; /* Set a max-width for the container */
+    margin: 0 auto; /* Center the container horizontally */
+    text-align: left; /* Align text to the left for form fields */
+}
+
+.contact-container h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 30px; /* Adjust font size as needed */
+    color: #E5E5E5; /* Text color */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-container p {
+    font-family: 'Rethink Sans', sans-serif;
+    font-size: 18px; /* Adjust font size as needed */
+    color: #E5E5E5; /* Text color */
+    margin-bottom: 20px;
+}
+
+/* Styles for the result section */
+#result {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#result-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.result-heading h3 {
+    font-family: 'Inter';
+    font-size: 30px; /* Adjust font size as needed */
+    color: #FFFFFF99; /* Text color */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.negative-heading {
+    color: green;
+}
+
+.positive-heading {
+    color: red;
+}
+
+#result-message {
+    font-size: 18px;
+}
+
+/* Style for bold text */
+.bold {
+    font-weight: bold;
+}
+
+/* Style for regular text */
+.regular {
+    font-weight: normal;
+}
+
