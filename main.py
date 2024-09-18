@@ -58,3 +58,7 @@ async def upload_image(file: UploadFile = File(...)):
 
     # Return the result as a JSON response
     return {"result": result}
+
+if __name__ == '__main__':
+    import uvicorn
+    uvicorn.run(app)
